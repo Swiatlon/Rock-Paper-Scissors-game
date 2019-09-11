@@ -77,62 +77,29 @@ function resetGame() {
 }
 
 function winner() {
-
     switch (true) {
-        case (myPick == imagesArray[0] && computerPick == imagesArray[0]):
-            winnerString.innerHTML = "Zwyciezca: Remis";
-            drawScore++;
-            draw.textContent = "Remis: " + drawScore;
-            break;
-        case (myPick == imagesArray[0] && computerPick == imagesArray[1]):
-            winnerString.innerHTML = "Zwyciezca: Ty";
-            winScore++;
-            win.textContent = "Wygrane: " + winScore;
-            break;
-        case (myPick == imagesArray[0] && computerPick == imagesArray[2]):
-            winnerString.innerHTML = "Zwyciezca: Komputer";
-            loseScore++;
-            lose.textContent = "Przegrane: " + loseScore;
-            break;
-        case (myPick == imagesArray[0] && computerPick == imagesArray[2]):
-            winnerString.innerHTML = "Zwyciezca: Komputer";
-            loseScore++;
-            lose.textContent = "Przegrane: " + loseScore;
-            break;
-        case (myPick == imagesArray[1] && computerPick == imagesArray[0]):
-            winnerString.innerHTML = "Zwyciezca: Komputer";
-            loseScore++;
-            lose.textContent = "Przegrane: " + loseScore;
-            break;
-        case (myPick == imagesArray[1] && computerPick == imagesArray[1]):
-            winnerString.innerHTML = "Zwyciezca: Remis";
-            drawScore++;
-            draw.textContent = "Remis: " + drawScore;
-            break;
-        case (myPick == imagesArray[1] && computerPick == imagesArray[2]):
-            winnerString.innerHTML = "Zwyciezca: Ty";
-            winScore++;
-            win.textContent = "Wygrane: " + winScore;
-            break;
-        case (myPick == imagesArray[2] && computerPick == imagesArray[0]):
-            winnerString.innerHTML = "Zwyciezca: Ty";
-            winScore++;
-            win.textContent = "Wygrane: " + winScore;
-            break;
-        case (myPick == imagesArray[2] && computerPick == imagesArray[1]):
-            winnerString.innerHTML = "Zwyciezca: Komputer";
-            loseScore++;
-            lose.textContent = "Przegrane: " + loseScore;
-            break;
-        case (myPick == imagesArray[2] && computerPick == imagesArray[2]):
-            winnerString.innerHTML = "Zwyciezca: Remis";
-            drawScore++;
-            draw.textContent = "Remis: " + drawScore;
-
-            break;
-        default:
-            console.log("Siema");
-    }
+    case myPick == computerPick:
+      winnerString.innerHTML = 'Zwyciezca: Remis';
+      drawScore++;
+      draw.textContent = 'Remis: ' + drawScore;
+      break;
+    case myPick == imagesArray[0] && computerPick == imagesArray[1]:
+    case myPick == imagesArray[1] && computerPick == imagesArray[2]:
+    case myPick == imagesArray[2] && computerPick == imagesArray[0]:
+      winnerString.innerHTML = 'Zwyciezca: Ty';
+      winScore++;
+      win.textContent = 'Wygrane: ' + winScore;
+      break;
+    case myPick == imagesArray[0] && computerPick == imagesArray[2]:
+    case myPick == imagesArray[1] && computerPick == imagesArray[0]:
+    case myPick == imagesArray[2] && computerPick == imagesArray[1]:
+      winnerString.innerHTML = 'Zwyciezca: Komputer';
+      loseScore++;
+      lose.textContent = 'Przegrane: ' + loseScore;
+      break;
+    default:
+      return null;
+  }
 }
 
 onClickChoice();
